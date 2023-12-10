@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=0 python train-wa.py --data-dir 'dataset-data' \
+    --log-dir 'trained_models' \
+    --desc 'WRN28-10Swish_cifar10s_lr0p2_TRADES5_epoch400_bs512_fraction0p7_ls0p1' \
+    --data-dir 'data' \
+    --data cifar10s \
+    --batch-size 512 \
+    --model wrn-28-10-swish \
+    --num-adv-epochs 400 \
+    --lr 0.2 \
+    --beta 5.0 \
+    --unsup-fraction 0.7 \
+    --aux-data-filename 'edm_data/cifar10/1m.npz' \
+    --ls 0.1

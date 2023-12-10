@@ -132,7 +132,8 @@ for epoch in range(start_epoch, NUM_ADV_EPOCHS+1):
         shutil.copyfile(WEIGHTS, os.path.join(LOG_DIR, f'weights-best-epoch{str(epoch)}.pt'))
 
     logger.log('Time taken: {}'.format(format_time(time.time()-start)))
-    metrics = metrics.append(pd.DataFrame(epoch_metrics, index=[0]), ignore_index=True)
+    # metrics = metrics.append(pd.DataFrame(epoch_metrics, index=[0]), ignore_index=True)
+    metrics = pd.concat([metrics, pd.DataFrame(epoch_metrics, index=[0])], ignore_index=True)
     metrics.to_csv(os.path.join(LOG_DIR, 'stats_adv.csv'), index=False)
 
     
